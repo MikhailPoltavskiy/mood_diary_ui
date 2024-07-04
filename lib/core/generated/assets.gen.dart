@@ -31,6 +31,9 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/calendar.svg
+  SvgGenImage get calendar => const SvgGenImage('assets/icons/calendar.svg');
+
   /// File path: assets/icons/chart.svg
   SvgGenImage get chart => const SvgGenImage('assets/icons/chart.svg');
 
@@ -38,7 +41,7 @@ class $AssetsIconsGen {
   SvgGenImage get diary => const SvgGenImage('assets/icons/diary.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [chart, diary];
+  List<SvgGenImage> get values => [calendar, chart, diary];
 }
 
 class $AssetsImagesGen {

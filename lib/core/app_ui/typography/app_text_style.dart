@@ -22,4 +22,14 @@ class AppTextStyles {
     fontSize: 12,
     fontWeight: FontWeight.w500,
   );
+
+  static final textAppBar = _baseSFProStyle.copyWith(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+  );
+
+  static final textTag = _baseSFProStyle.copyWith(
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+  );
 }

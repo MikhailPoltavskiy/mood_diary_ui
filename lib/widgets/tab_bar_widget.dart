@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import 'package:mood_diary_ui/core/app_ui/app_ui.dart';
 import 'package:mood_diary_ui/core/generated/assets.gen.dart';
+import 'package:mood_diary_ui/widgets/mood_indicators_widget.dart';
 
 class TabBarWidget extends StatefulWidget {
   const TabBarWidget({super.key});
@@ -12,6 +14,7 @@ class TabBarWidget extends StatefulWidget {
 
 class _TabBarWidgetState extends State<TabBarWidget> with TickerProviderStateMixin {
   late final TabController _tabController;
+  DateTime _selectedDate = DateTime.now();
 
   @override
   void initState() {
@@ -20,6 +23,20 @@ class _TabBarWidgetState extends State<TabBarWidget> with TickerProviderStateMix
       length: 2,
       vsync: this,
     );
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != _selectedDate) {
+      setState(() {
+        _selectedDate = picked;
+      });
+    }
   }
 
   @override
@@ -32,7 +49,28 @@ class _TabBarWidgetState extends State<TabBarWidget> with TickerProviderStateMix
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TabBar Sample'),
+        toolbarHeight: 68,
+        centerTitle: true,
+        title: Text(
+          DateFormat('dd MMMM hh:mm', 'ru').format(_selectedDate),
+          style: AppTextStyles.textAppBar.copyWith(
+            color: AppColors.grayTwo,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: SvgPicture.asset(
+              Assets.icons.calendar.path,
+              width: 24,
+              height: 24,
+              colorFilter: const ColorFilter.mode(
+                AppColors.grayTwo,
+                BlendMode.srcIn,
+              ),
+            ),
+            onPressed: () => _selectDate(context),
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -88,9 +126,7 @@ class _TabBarWidgetState extends State<TabBarWidget> with TickerProviderStateMix
             child: TabBarView(
               controller: _tabController,
               children: const <Widget>[
-                Center(
-                  child: Text("Дневник настроения"),
-                ),
+                MoodIndicatorWidget(),
                 Center(
                   child: Text("Статистика"),
                 ),
