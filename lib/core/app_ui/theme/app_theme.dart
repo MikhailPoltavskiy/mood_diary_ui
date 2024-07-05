@@ -5,12 +5,17 @@ class AppTheme {
   const AppTheme._();
 
   static final light = ThemeData(
+    textTheme: TextTheme(
+      bodyMedium: AppTextStyles.textInputField,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: AppTextStyles.textInputField.copyWith(
+        color: AppColors.grayTwo,
+      ),
+    ),
     scaffoldBackgroundColor: AppColors.whiteBackground,
-    appBarTheme: AppBarTheme(
-      // titleTextStyle: AppTextStyles.title_1.copyWith(
-      //   color: AppColors.white,
-      // ),
-      iconTheme: const IconThemeData(
+    appBarTheme: const AppBarTheme(
+      iconTheme: IconThemeData(
         color: AppColors.white,
       ),
       backgroundColor: AppColors.whiteBackground,

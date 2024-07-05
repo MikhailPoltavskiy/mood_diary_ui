@@ -3,16 +3,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:mood_diary_ui/core/app_ui/app_ui.dart';
 import 'package:mood_diary_ui/core/generated/assets.gen.dart';
-import 'package:mood_diary_ui/widgets/mood_indicators_widget.dart';
+import 'package:mood_diary_ui/features/mood_form/presentation/widgets/mood_indicators_widget.dart';
+import 'package:mood_diary_ui/features/statistics/presentation/widgets/statistics_widget.dart';
 
-class TabBarWidget extends StatefulWidget {
-  const TabBarWidget({super.key});
+class TabBarPage extends StatefulWidget {
+  const TabBarPage({super.key});
 
   @override
-  State<TabBarWidget> createState() => _TabBarWidgetState();
+  State<TabBarPage> createState() => _TabBarPageState();
 }
 
-class _TabBarWidgetState extends State<TabBarWidget> with TickerProviderStateMixin {
+class _TabBarPageState extends State<TabBarPage> with TickerProviderStateMixin {
   late final TabController _tabController;
   DateTime _selectedDate = DateTime.now();
 
@@ -127,9 +128,7 @@ class _TabBarWidgetState extends State<TabBarWidget> with TickerProviderStateMix
               controller: _tabController,
               children: const <Widget>[
                 MoodIndicatorWidget(),
-                Center(
-                  child: Text("Статистика"),
-                ),
+                StatisticsWidget(),
               ],
             ),
           ),

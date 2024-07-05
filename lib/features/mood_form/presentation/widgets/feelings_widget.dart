@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mood_diary_ui/core/app_ui/app_ui.dart';
 import 'package:mood_diary_ui/core/generated/assets.gen.dart';
-import 'package:mood_diary_ui/core/widgets/app_emotion_card_widget.dart';
-import 'package:mood_diary_ui/core/widgets/app_tags_widget.dart';
+import 'package:mood_diary_ui/core/widgets/app_emotion_card.dart';
+import 'package:mood_diary_ui/core/widgets/app_tags.dart';
 
 final mapEmotions = {
   'Радость': Assets.images.joy.path,
@@ -50,7 +50,7 @@ class _FeelingsWidgetState extends State<FeelingsWidget> {
   Widget _getEmotionTags(String? emotion) {
     switch (emotion) {
       case 'Радость':
-        return const AppTagsWidget(tags: tagsJoy);
+        return const AppTags(tags: tagsJoy);
       default:
         return const SizedBox.shrink();
     }
@@ -83,7 +83,7 @@ class _FeelingsWidgetState extends State<FeelingsWidget> {
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 onTap: () => _onContainerTap(labels[index]),
-                child: AppEmotionCardWidget(
+                child: AppEmotionCard(
                   image: images[index],
                   label: labels[index],
                   isSelected: selectedTag == labels[index],

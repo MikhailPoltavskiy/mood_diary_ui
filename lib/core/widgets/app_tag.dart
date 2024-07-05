@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mood_diary_ui/core/app_ui/app_ui.dart';
 
-class AppTagWidget extends StatefulWidget {
-  const AppTagWidget({
+class AppTag extends StatefulWidget {
+  const AppTag({
     super.key,
     required this.label,
   });
@@ -10,10 +10,10 @@ class AppTagWidget extends StatefulWidget {
   final String label;
 
   @override
-  State<AppTagWidget> createState() => _AppTagWidgetState();
+  State<AppTag> createState() => _AppTagState();
 }
 
-class _AppTagWidgetState extends State<AppTagWidget> {
+class _AppTagState extends State<AppTag> {
   bool _isSelected = false;
 
   void _onSelected() {

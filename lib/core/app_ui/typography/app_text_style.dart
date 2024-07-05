@@ -32,4 +32,13 @@ class AppTextStyles {
     fontSize: 11,
     fontWeight: FontWeight.w400,
   );
+
+  static final textInputField = _baseSFProStyle.copyWith(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+  );
+  static final textButton = _baseSFProStyle.copyWith(
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+  );
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mood_diary_ui/core/widgets/app_tag_widget.dart';
+import 'package:mood_diary_ui/core/widgets/app_tag.dart';
 
-class AppTagsWidget extends StatelessWidget {
-  const AppTagsWidget({
+class AppTags extends StatelessWidget {
+  const AppTags({
     super.key,
     required this.tags,
   });
@@ -15,7 +15,7 @@ class AppTagsWidget extends StatelessWidget {
       spacing: 8,
       runSpacing: 8,
       children: tags.map((tag) {
-        return AppTagWidget(
+        return AppTag(
           label: tag,
         );
       }).toList(),

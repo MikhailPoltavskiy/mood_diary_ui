@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mood_diary_ui/core/app_ui/app_ui.dart';
 
-class AppEmotionCardWidget extends StatelessWidget {
-  const AppEmotionCardWidget({
+class AppEmotionCard extends StatelessWidget {
+  const AppEmotionCard({
     super.key,
     required this.image,
     required this.label,
