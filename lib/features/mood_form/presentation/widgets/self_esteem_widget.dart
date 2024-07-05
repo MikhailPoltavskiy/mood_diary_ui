@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mood_diary_ui/core/app_ui/app_ui.dart';
 import 'package:mood_diary_ui/core/widgets/app_slider.dart';
+import 'package:mood_diary_ui/features/mood_form/presentation/bloc/mood_bloc.dart';
 
 class SelfEsteemWidget extends StatelessWidget {
   const SelfEsteemWidget({super.key});
@@ -25,6 +27,7 @@ class SelfEsteemWidget extends StatelessWidget {
           startLabel: 'Неуверенность',
           finishLabel: 'Уверенность',
           onChanged: (stressLevel) {
+            context.read<MoodBloc>().add(MoodEvent.updateSelfEsteem(stressLevel));
             if (kDebugMode) {
               print('Уровень стресса: $stressLevel');
             }

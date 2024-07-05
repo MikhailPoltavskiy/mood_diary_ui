@@ -18,32 +18,32 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MoodEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTime dateTime) updateDateTime,
-    required TResult Function(String emotion) updateEmotion,
-    required TResult Function(List<String> subEmotion) updateSubEmotion,
-    required TResult Function(double stress) updateStress,
-    required TResult Function(double selfEsteem) updateSelfEsteem,
-    required TResult Function(String note) updateNote,
+    required TResult Function(DateTime? dateTime) updateDateTime,
+    required TResult Function(String? emotion) updateEmotion,
+    required TResult Function(String? subEmotion) updateSubEmotion,
+    required TResult Function(double? stress) updateStress,
+    required TResult Function(double? selfEsteem) updateSelfEsteem,
+    required TResult Function(String? note) updateNote,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTime dateTime)? updateDateTime,
-    TResult? Function(String emotion)? updateEmotion,
-    TResult? Function(List<String> subEmotion)? updateSubEmotion,
-    TResult? Function(double stress)? updateStress,
-    TResult? Function(double selfEsteem)? updateSelfEsteem,
-    TResult? Function(String note)? updateNote,
+    TResult? Function(DateTime? dateTime)? updateDateTime,
+    TResult? Function(String? emotion)? updateEmotion,
+    TResult? Function(String? subEmotion)? updateSubEmotion,
+    TResult? Function(double? stress)? updateStress,
+    TResult? Function(double? selfEsteem)? updateSelfEsteem,
+    TResult? Function(String? note)? updateNote,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime dateTime)? updateDateTime,
-    TResult Function(String emotion)? updateEmotion,
-    TResult Function(List<String> subEmotion)? updateSubEmotion,
-    TResult Function(double stress)? updateStress,
-    TResult Function(double selfEsteem)? updateSelfEsteem,
-    TResult Function(String note)? updateNote,
+    TResult Function(DateTime? dateTime)? updateDateTime,
+    TResult Function(String? emotion)? updateEmotion,
+    TResult Function(String? subEmotion)? updateSubEmotion,
+    TResult Function(double? stress)? updateStress,
+    TResult Function(double? selfEsteem)? updateSelfEsteem,
+    TResult Function(String? note)? updateNote,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -103,7 +103,7 @@ abstract class _$$UpdateDateTimeImplCopyWith<$Res> {
           $Res Function(_$UpdateDateTimeImpl) then) =
       __$$UpdateDateTimeImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DateTime dateTime});
+  $Res call({DateTime? dateTime});
 }
 
 /// @nodoc
@@ -117,13 +117,13 @@ class __$$UpdateDateTimeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dateTime = null,
+    Object? dateTime = freezed,
   }) {
     return _then(_$UpdateDateTimeImpl(
-      null == dateTime
+      freezed == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -134,7 +134,7 @@ class _$UpdateDateTimeImpl implements _UpdateDateTime {
   const _$UpdateDateTimeImpl(this.dateTime);
 
   @override
-  final DateTime dateTime;
+  final DateTime? dateTime;
 
   @override
   String toString() {
@@ -163,12 +163,12 @@ class _$UpdateDateTimeImpl implements _UpdateDateTime {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTime dateTime) updateDateTime,
-    required TResult Function(String emotion) updateEmotion,
-    required TResult Function(List<String> subEmotion) updateSubEmotion,
-    required TResult Function(double stress) updateStress,
-    required TResult Function(double selfEsteem) updateSelfEsteem,
-    required TResult Function(String note) updateNote,
+    required TResult Function(DateTime? dateTime) updateDateTime,
+    required TResult Function(String? emotion) updateEmotion,
+    required TResult Function(String? subEmotion) updateSubEmotion,
+    required TResult Function(double? stress) updateStress,
+    required TResult Function(double? selfEsteem) updateSelfEsteem,
+    required TResult Function(String? note) updateNote,
   }) {
     return updateDateTime(dateTime);
   }
@@ -176,12 +176,12 @@ class _$UpdateDateTimeImpl implements _UpdateDateTime {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTime dateTime)? updateDateTime,
-    TResult? Function(String emotion)? updateEmotion,
-    TResult? Function(List<String> subEmotion)? updateSubEmotion,
-    TResult? Function(double stress)? updateStress,
-    TResult? Function(double selfEsteem)? updateSelfEsteem,
-    TResult? Function(String note)? updateNote,
+    TResult? Function(DateTime? dateTime)? updateDateTime,
+    TResult? Function(String? emotion)? updateEmotion,
+    TResult? Function(String? subEmotion)? updateSubEmotion,
+    TResult? Function(double? stress)? updateStress,
+    TResult? Function(double? selfEsteem)? updateSelfEsteem,
+    TResult? Function(String? note)? updateNote,
   }) {
     return updateDateTime?.call(dateTime);
   }
@@ -189,12 +189,12 @@ class _$UpdateDateTimeImpl implements _UpdateDateTime {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime dateTime)? updateDateTime,
-    TResult Function(String emotion)? updateEmotion,
-    TResult Function(List<String> subEmotion)? updateSubEmotion,
-    TResult Function(double stress)? updateStress,
-    TResult Function(double selfEsteem)? updateSelfEsteem,
-    TResult Function(String note)? updateNote,
+    TResult Function(DateTime? dateTime)? updateDateTime,
+    TResult Function(String? emotion)? updateEmotion,
+    TResult Function(String? subEmotion)? updateSubEmotion,
+    TResult Function(double? stress)? updateStress,
+    TResult Function(double? selfEsteem)? updateSelfEsteem,
+    TResult Function(String? note)? updateNote,
     required TResult orElse(),
   }) {
     if (updateDateTime != null) {
@@ -248,9 +248,10 @@ class _$UpdateDateTimeImpl implements _UpdateDateTime {
 }
 
 abstract class _UpdateDateTime implements MoodEvent {
-  const factory _UpdateDateTime(final DateTime dateTime) = _$UpdateDateTimeImpl;
+  const factory _UpdateDateTime(final DateTime? dateTime) =
+      _$UpdateDateTimeImpl;
 
-  DateTime get dateTime;
+  DateTime? get dateTime;
   @JsonKey(ignore: true)
   _$$UpdateDateTimeImplCopyWith<_$UpdateDateTimeImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -262,7 +263,7 @@ abstract class _$$UpdateEmotionImplCopyWith<$Res> {
           _$UpdateEmotionImpl value, $Res Function(_$UpdateEmotionImpl) then) =
       __$$UpdateEmotionImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String emotion});
+  $Res call({String? emotion});
 }
 
 /// @nodoc
@@ -276,13 +277,13 @@ class __$$UpdateEmotionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? emotion = null,
+    Object? emotion = freezed,
   }) {
     return _then(_$UpdateEmotionImpl(
-      null == emotion
+      freezed == emotion
           ? _value.emotion
           : emotion // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -293,7 +294,7 @@ class _$UpdateEmotionImpl implements _UpdateEmotion {
   const _$UpdateEmotionImpl(this.emotion);
 
   @override
-  final String emotion;
+  final String? emotion;
 
   @override
   String toString() {
@@ -320,12 +321,12 @@ class _$UpdateEmotionImpl implements _UpdateEmotion {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTime dateTime) updateDateTime,
-    required TResult Function(String emotion) updateEmotion,
-    required TResult Function(List<String> subEmotion) updateSubEmotion,
-    required TResult Function(double stress) updateStress,
-    required TResult Function(double selfEsteem) updateSelfEsteem,
-    required TResult Function(String note) updateNote,
+    required TResult Function(DateTime? dateTime) updateDateTime,
+    required TResult Function(String? emotion) updateEmotion,
+    required TResult Function(String? subEmotion) updateSubEmotion,
+    required TResult Function(double? stress) updateStress,
+    required TResult Function(double? selfEsteem) updateSelfEsteem,
+    required TResult Function(String? note) updateNote,
   }) {
     return updateEmotion(emotion);
   }
@@ -333,12 +334,12 @@ class _$UpdateEmotionImpl implements _UpdateEmotion {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTime dateTime)? updateDateTime,
-    TResult? Function(String emotion)? updateEmotion,
-    TResult? Function(List<String> subEmotion)? updateSubEmotion,
-    TResult? Function(double stress)? updateStress,
-    TResult? Function(double selfEsteem)? updateSelfEsteem,
-    TResult? Function(String note)? updateNote,
+    TResult? Function(DateTime? dateTime)? updateDateTime,
+    TResult? Function(String? emotion)? updateEmotion,
+    TResult? Function(String? subEmotion)? updateSubEmotion,
+    TResult? Function(double? stress)? updateStress,
+    TResult? Function(double? selfEsteem)? updateSelfEsteem,
+    TResult? Function(String? note)? updateNote,
   }) {
     return updateEmotion?.call(emotion);
   }
@@ -346,12 +347,12 @@ class _$UpdateEmotionImpl implements _UpdateEmotion {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime dateTime)? updateDateTime,
-    TResult Function(String emotion)? updateEmotion,
-    TResult Function(List<String> subEmotion)? updateSubEmotion,
-    TResult Function(double stress)? updateStress,
-    TResult Function(double selfEsteem)? updateSelfEsteem,
-    TResult Function(String note)? updateNote,
+    TResult Function(DateTime? dateTime)? updateDateTime,
+    TResult Function(String? emotion)? updateEmotion,
+    TResult Function(String? subEmotion)? updateSubEmotion,
+    TResult Function(double? stress)? updateStress,
+    TResult Function(double? selfEsteem)? updateSelfEsteem,
+    TResult Function(String? note)? updateNote,
     required TResult orElse(),
   }) {
     if (updateEmotion != null) {
@@ -405,9 +406,9 @@ class _$UpdateEmotionImpl implements _UpdateEmotion {
 }
 
 abstract class _UpdateEmotion implements MoodEvent {
-  const factory _UpdateEmotion(final String emotion) = _$UpdateEmotionImpl;
+  const factory _UpdateEmotion(final String? emotion) = _$UpdateEmotionImpl;
 
-  String get emotion;
+  String? get emotion;
   @JsonKey(ignore: true)
   _$$UpdateEmotionImplCopyWith<_$UpdateEmotionImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -419,7 +420,7 @@ abstract class _$$UpdateSubEmotionImplCopyWith<$Res> {
           $Res Function(_$UpdateSubEmotionImpl) then) =
       __$$UpdateSubEmotionImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<String> subEmotion});
+  $Res call({String? subEmotion});
 }
 
 /// @nodoc
@@ -433,13 +434,13 @@ class __$$UpdateSubEmotionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? subEmotion = null,
+    Object? subEmotion = freezed,
   }) {
     return _then(_$UpdateSubEmotionImpl(
-      null == subEmotion
-          ? _value._subEmotion
+      freezed == subEmotion
+          ? _value.subEmotion
           : subEmotion // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String?,
     ));
   }
 }
@@ -447,16 +448,10 @@ class __$$UpdateSubEmotionImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
-  const _$UpdateSubEmotionImpl(final List<String> subEmotion)
-      : _subEmotion = subEmotion;
+  const _$UpdateSubEmotionImpl(this.subEmotion);
 
-  final List<String> _subEmotion;
   @override
-  List<String> get subEmotion {
-    if (_subEmotion is EqualUnmodifiableListView) return _subEmotion;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_subEmotion);
-  }
+  final String? subEmotion;
 
   @override
   String toString() {
@@ -468,13 +463,12 @@ class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateSubEmotionImpl &&
-            const DeepCollectionEquality()
-                .equals(other._subEmotion, _subEmotion));
+            (identical(other.subEmotion, subEmotion) ||
+                other.subEmotion == subEmotion));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_subEmotion));
+  int get hashCode => Object.hash(runtimeType, subEmotion);
 
   @JsonKey(ignore: true)
   @override
@@ -486,12 +480,12 @@ class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTime dateTime) updateDateTime,
-    required TResult Function(String emotion) updateEmotion,
-    required TResult Function(List<String> subEmotion) updateSubEmotion,
-    required TResult Function(double stress) updateStress,
-    required TResult Function(double selfEsteem) updateSelfEsteem,
-    required TResult Function(String note) updateNote,
+    required TResult Function(DateTime? dateTime) updateDateTime,
+    required TResult Function(String? emotion) updateEmotion,
+    required TResult Function(String? subEmotion) updateSubEmotion,
+    required TResult Function(double? stress) updateStress,
+    required TResult Function(double? selfEsteem) updateSelfEsteem,
+    required TResult Function(String? note) updateNote,
   }) {
     return updateSubEmotion(subEmotion);
   }
@@ -499,12 +493,12 @@ class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTime dateTime)? updateDateTime,
-    TResult? Function(String emotion)? updateEmotion,
-    TResult? Function(List<String> subEmotion)? updateSubEmotion,
-    TResult? Function(double stress)? updateStress,
-    TResult? Function(double selfEsteem)? updateSelfEsteem,
-    TResult? Function(String note)? updateNote,
+    TResult? Function(DateTime? dateTime)? updateDateTime,
+    TResult? Function(String? emotion)? updateEmotion,
+    TResult? Function(String? subEmotion)? updateSubEmotion,
+    TResult? Function(double? stress)? updateStress,
+    TResult? Function(double? selfEsteem)? updateSelfEsteem,
+    TResult? Function(String? note)? updateNote,
   }) {
     return updateSubEmotion?.call(subEmotion);
   }
@@ -512,12 +506,12 @@ class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime dateTime)? updateDateTime,
-    TResult Function(String emotion)? updateEmotion,
-    TResult Function(List<String> subEmotion)? updateSubEmotion,
-    TResult Function(double stress)? updateStress,
-    TResult Function(double selfEsteem)? updateSelfEsteem,
-    TResult Function(String note)? updateNote,
+    TResult Function(DateTime? dateTime)? updateDateTime,
+    TResult Function(String? emotion)? updateEmotion,
+    TResult Function(String? subEmotion)? updateSubEmotion,
+    TResult Function(double? stress)? updateStress,
+    TResult Function(double? selfEsteem)? updateSelfEsteem,
+    TResult Function(String? note)? updateNote,
     required TResult orElse(),
   }) {
     if (updateSubEmotion != null) {
@@ -571,10 +565,10 @@ class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
 }
 
 abstract class _UpdateSubEmotion implements MoodEvent {
-  const factory _UpdateSubEmotion(final List<String> subEmotion) =
+  const factory _UpdateSubEmotion(final String? subEmotion) =
       _$UpdateSubEmotionImpl;
 
-  List<String> get subEmotion;
+  String? get subEmotion;
   @JsonKey(ignore: true)
   _$$UpdateSubEmotionImplCopyWith<_$UpdateSubEmotionImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -586,7 +580,7 @@ abstract class _$$UpdateStressImplCopyWith<$Res> {
           _$UpdateStressImpl value, $Res Function(_$UpdateStressImpl) then) =
       __$$UpdateStressImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({double stress});
+  $Res call({double? stress});
 }
 
 /// @nodoc
@@ -600,13 +594,13 @@ class __$$UpdateStressImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? stress = null,
+    Object? stress = freezed,
   }) {
     return _then(_$UpdateStressImpl(
-      null == stress
+      freezed == stress
           ? _value.stress
           : stress // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -617,7 +611,7 @@ class _$UpdateStressImpl implements _UpdateStress {
   const _$UpdateStressImpl(this.stress);
 
   @override
-  final double stress;
+  final double? stress;
 
   @override
   String toString() {
@@ -644,12 +638,12 @@ class _$UpdateStressImpl implements _UpdateStress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTime dateTime) updateDateTime,
-    required TResult Function(String emotion) updateEmotion,
-    required TResult Function(List<String> subEmotion) updateSubEmotion,
-    required TResult Function(double stress) updateStress,
-    required TResult Function(double selfEsteem) updateSelfEsteem,
-    required TResult Function(String note) updateNote,
+    required TResult Function(DateTime? dateTime) updateDateTime,
+    required TResult Function(String? emotion) updateEmotion,
+    required TResult Function(String? subEmotion) updateSubEmotion,
+    required TResult Function(double? stress) updateStress,
+    required TResult Function(double? selfEsteem) updateSelfEsteem,
+    required TResult Function(String? note) updateNote,
   }) {
     return updateStress(stress);
   }
@@ -657,12 +651,12 @@ class _$UpdateStressImpl implements _UpdateStress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTime dateTime)? updateDateTime,
-    TResult? Function(String emotion)? updateEmotion,
-    TResult? Function(List<String> subEmotion)? updateSubEmotion,
-    TResult? Function(double stress)? updateStress,
-    TResult? Function(double selfEsteem)? updateSelfEsteem,
-    TResult? Function(String note)? updateNote,
+    TResult? Function(DateTime? dateTime)? updateDateTime,
+    TResult? Function(String? emotion)? updateEmotion,
+    TResult? Function(String? subEmotion)? updateSubEmotion,
+    TResult? Function(double? stress)? updateStress,
+    TResult? Function(double? selfEsteem)? updateSelfEsteem,
+    TResult? Function(String? note)? updateNote,
   }) {
     return updateStress?.call(stress);
   }
@@ -670,12 +664,12 @@ class _$UpdateStressImpl implements _UpdateStress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime dateTime)? updateDateTime,
-    TResult Function(String emotion)? updateEmotion,
-    TResult Function(List<String> subEmotion)? updateSubEmotion,
-    TResult Function(double stress)? updateStress,
-    TResult Function(double selfEsteem)? updateSelfEsteem,
-    TResult Function(String note)? updateNote,
+    TResult Function(DateTime? dateTime)? updateDateTime,
+    TResult Function(String? emotion)? updateEmotion,
+    TResult Function(String? subEmotion)? updateSubEmotion,
+    TResult Function(double? stress)? updateStress,
+    TResult Function(double? selfEsteem)? updateSelfEsteem,
+    TResult Function(String? note)? updateNote,
     required TResult orElse(),
   }) {
     if (updateStress != null) {
@@ -729,9 +723,9 @@ class _$UpdateStressImpl implements _UpdateStress {
 }
 
 abstract class _UpdateStress implements MoodEvent {
-  const factory _UpdateStress(final double stress) = _$UpdateStressImpl;
+  const factory _UpdateStress(final double? stress) = _$UpdateStressImpl;
 
-  double get stress;
+  double? get stress;
   @JsonKey(ignore: true)
   _$$UpdateStressImplCopyWith<_$UpdateStressImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -743,7 +737,7 @@ abstract class _$$UpdateSelfEsteemImplCopyWith<$Res> {
           $Res Function(_$UpdateSelfEsteemImpl) then) =
       __$$UpdateSelfEsteemImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({double selfEsteem});
+  $Res call({double? selfEsteem});
 }
 
 /// @nodoc
@@ -757,13 +751,13 @@ class __$$UpdateSelfEsteemImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? selfEsteem = null,
+    Object? selfEsteem = freezed,
   }) {
     return _then(_$UpdateSelfEsteemImpl(
-      null == selfEsteem
+      freezed == selfEsteem
           ? _value.selfEsteem
           : selfEsteem // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -774,7 +768,7 @@ class _$UpdateSelfEsteemImpl implements _UpdateSelfEsteem {
   const _$UpdateSelfEsteemImpl(this.selfEsteem);
 
   @override
-  final double selfEsteem;
+  final double? selfEsteem;
 
   @override
   String toString() {
@@ -803,12 +797,12 @@ class _$UpdateSelfEsteemImpl implements _UpdateSelfEsteem {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTime dateTime) updateDateTime,
-    required TResult Function(String emotion) updateEmotion,
-    required TResult Function(List<String> subEmotion) updateSubEmotion,
-    required TResult Function(double stress) updateStress,
-    required TResult Function(double selfEsteem) updateSelfEsteem,
-    required TResult Function(String note) updateNote,
+    required TResult Function(DateTime? dateTime) updateDateTime,
+    required TResult Function(String? emotion) updateEmotion,
+    required TResult Function(String? subEmotion) updateSubEmotion,
+    required TResult Function(double? stress) updateStress,
+    required TResult Function(double? selfEsteem) updateSelfEsteem,
+    required TResult Function(String? note) updateNote,
   }) {
     return updateSelfEsteem(selfEsteem);
   }
@@ -816,12 +810,12 @@ class _$UpdateSelfEsteemImpl implements _UpdateSelfEsteem {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTime dateTime)? updateDateTime,
-    TResult? Function(String emotion)? updateEmotion,
-    TResult? Function(List<String> subEmotion)? updateSubEmotion,
-    TResult? Function(double stress)? updateStress,
-    TResult? Function(double selfEsteem)? updateSelfEsteem,
-    TResult? Function(String note)? updateNote,
+    TResult? Function(DateTime? dateTime)? updateDateTime,
+    TResult? Function(String? emotion)? updateEmotion,
+    TResult? Function(String? subEmotion)? updateSubEmotion,
+    TResult? Function(double? stress)? updateStress,
+    TResult? Function(double? selfEsteem)? updateSelfEsteem,
+    TResult? Function(String? note)? updateNote,
   }) {
     return updateSelfEsteem?.call(selfEsteem);
   }
@@ -829,12 +823,12 @@ class _$UpdateSelfEsteemImpl implements _UpdateSelfEsteem {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime dateTime)? updateDateTime,
-    TResult Function(String emotion)? updateEmotion,
-    TResult Function(List<String> subEmotion)? updateSubEmotion,
-    TResult Function(double stress)? updateStress,
-    TResult Function(double selfEsteem)? updateSelfEsteem,
-    TResult Function(String note)? updateNote,
+    TResult Function(DateTime? dateTime)? updateDateTime,
+    TResult Function(String? emotion)? updateEmotion,
+    TResult Function(String? subEmotion)? updateSubEmotion,
+    TResult Function(double? stress)? updateStress,
+    TResult Function(double? selfEsteem)? updateSelfEsteem,
+    TResult Function(String? note)? updateNote,
     required TResult orElse(),
   }) {
     if (updateSelfEsteem != null) {
@@ -888,10 +882,10 @@ class _$UpdateSelfEsteemImpl implements _UpdateSelfEsteem {
 }
 
 abstract class _UpdateSelfEsteem implements MoodEvent {
-  const factory _UpdateSelfEsteem(final double selfEsteem) =
+  const factory _UpdateSelfEsteem(final double? selfEsteem) =
       _$UpdateSelfEsteemImpl;
 
-  double get selfEsteem;
+  double? get selfEsteem;
   @JsonKey(ignore: true)
   _$$UpdateSelfEsteemImplCopyWith<_$UpdateSelfEsteemImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -903,7 +897,7 @@ abstract class _$$UpdateNoteImplCopyWith<$Res> {
           _$UpdateNoteImpl value, $Res Function(_$UpdateNoteImpl) then) =
       __$$UpdateNoteImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String note});
+  $Res call({String? note});
 }
 
 /// @nodoc
@@ -917,13 +911,13 @@ class __$$UpdateNoteImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? note = null,
+    Object? note = freezed,
   }) {
     return _then(_$UpdateNoteImpl(
-      null == note
+      freezed == note
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -934,7 +928,7 @@ class _$UpdateNoteImpl implements _UpdateNote {
   const _$UpdateNoteImpl(this.note);
 
   @override
-  final String note;
+  final String? note;
 
   @override
   String toString() {
@@ -961,12 +955,12 @@ class _$UpdateNoteImpl implements _UpdateNote {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DateTime dateTime) updateDateTime,
-    required TResult Function(String emotion) updateEmotion,
-    required TResult Function(List<String> subEmotion) updateSubEmotion,
-    required TResult Function(double stress) updateStress,
-    required TResult Function(double selfEsteem) updateSelfEsteem,
-    required TResult Function(String note) updateNote,
+    required TResult Function(DateTime? dateTime) updateDateTime,
+    required TResult Function(String? emotion) updateEmotion,
+    required TResult Function(String? subEmotion) updateSubEmotion,
+    required TResult Function(double? stress) updateStress,
+    required TResult Function(double? selfEsteem) updateSelfEsteem,
+    required TResult Function(String? note) updateNote,
   }) {
     return updateNote(note);
   }
@@ -974,12 +968,12 @@ class _$UpdateNoteImpl implements _UpdateNote {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DateTime dateTime)? updateDateTime,
-    TResult? Function(String emotion)? updateEmotion,
-    TResult? Function(List<String> subEmotion)? updateSubEmotion,
-    TResult? Function(double stress)? updateStress,
-    TResult? Function(double selfEsteem)? updateSelfEsteem,
-    TResult? Function(String note)? updateNote,
+    TResult? Function(DateTime? dateTime)? updateDateTime,
+    TResult? Function(String? emotion)? updateEmotion,
+    TResult? Function(String? subEmotion)? updateSubEmotion,
+    TResult? Function(double? stress)? updateStress,
+    TResult? Function(double? selfEsteem)? updateSelfEsteem,
+    TResult? Function(String? note)? updateNote,
   }) {
     return updateNote?.call(note);
   }
@@ -987,12 +981,12 @@ class _$UpdateNoteImpl implements _UpdateNote {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime dateTime)? updateDateTime,
-    TResult Function(String emotion)? updateEmotion,
-    TResult Function(List<String> subEmotion)? updateSubEmotion,
-    TResult Function(double stress)? updateStress,
-    TResult Function(double selfEsteem)? updateSelfEsteem,
-    TResult Function(String note)? updateNote,
+    TResult Function(DateTime? dateTime)? updateDateTime,
+    TResult Function(String? emotion)? updateEmotion,
+    TResult Function(String? subEmotion)? updateSubEmotion,
+    TResult Function(double? stress)? updateStress,
+    TResult Function(double? selfEsteem)? updateSelfEsteem,
+    TResult Function(String? note)? updateNote,
     required TResult orElse(),
   }) {
     if (updateNote != null) {
@@ -1046,9 +1040,9 @@ class _$UpdateNoteImpl implements _UpdateNote {
 }
 
 abstract class _UpdateNote implements MoodEvent {
-  const factory _UpdateNote(final String note) = _$UpdateNoteImpl;
+  const factory _UpdateNote(final String? note) = _$UpdateNoteImpl;
 
-  String get note;
+  String? get note;
   @JsonKey(ignore: true)
   _$$UpdateNoteImplCopyWith<_$UpdateNoteImpl> get copyWith =>
       throw _privateConstructorUsedError;

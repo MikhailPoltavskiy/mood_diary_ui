@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:mood_diary_ui/core/app_ui/app_ui.dart';
 import 'package:mood_diary_ui/core/generated/assets.gen.dart';
+import 'package:mood_diary_ui/features/mood_form/presentation/bloc/mood_bloc.dart';
 import 'package:mood_diary_ui/features/mood_form/presentation/widgets/mood_indicators_widget.dart';
 import 'package:mood_diary_ui/features/statistics/presentation/widgets/statistics_widget.dart';
 
@@ -34,6 +36,7 @@ class _TabBarPageState extends State<TabBarPage> with TickerProviderStateMixin {
       lastDate: DateTime(2101),
     );
     if (picked != null && picked != _selectedDate) {
+      context.read<MoodBloc>().add(MoodEvent.updateDateTime(picked));
       setState(() {
         _selectedDate = picked;
       });

@@ -25,6 +25,7 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
       moodEntity: newMoodEntity,
       isComplete: _checkCompletion(newMoodEntity),
     ));
+    print('BLOC DATETIME ${state.moodEntity}');
   }
 
   Future<void> _updateEmotion(
@@ -36,17 +37,19 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
       moodEntity: newMoodEntity,
       isComplete: _checkCompletion(newMoodEntity),
     ));
+    print('BLOC EMOTION ${state.moodEntity}');
   }
 
   Future<void> _updateSubEmotion(
     _UpdateSubEmotion event,
     Emitter<MoodState> emit,
   ) async {
-    final newMoodEntity = state.moodEntity.copyWith(subEmotion: event.subEmotion);
+    final newMoodEntity = state.moodEntity.copyWith(subEmotion: [event.subEmotion ?? '']);
     emit(state.copyWith(
       moodEntity: newMoodEntity,
       isComplete: _checkCompletion(newMoodEntity),
     ));
+    print('BLOC SUBEMOTION ${state.moodEntity}');
   }
 
   Future<void> _updateStress(
@@ -58,6 +61,7 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
       moodEntity: newMoodEntity,
       isComplete: _checkCompletion(newMoodEntity),
     ));
+    print('BLOC STRESS ${state.moodEntity}');
   }
 
   Future<void> _updateSelfEsteem(
@@ -69,6 +73,7 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
       moodEntity: newMoodEntity,
       isComplete: _checkCompletion(newMoodEntity),
     ));
+    print('BLOC SELFESTEEM ${state.moodEntity}');
   }
 
   Future<void> _updateNote(
@@ -80,6 +85,7 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
       moodEntity: newMoodEntity,
       isComplete: _checkCompletion(newMoodEntity),
     ));
+    print('BLOC NOTE ${state.moodEntity}');
   }
 
   bool _checkCompletion(MoodEntity moodEntity) {

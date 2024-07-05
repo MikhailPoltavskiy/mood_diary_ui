@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mood_diary_ui/core/app_ui/app_ui.dart';
+import 'package:mood_diary_ui/features/mood_form/presentation/bloc/mood_bloc.dart';
 
 class NotesWidget extends StatelessWidget {
   const NotesWidget({super.key});
@@ -35,11 +37,13 @@ class NotesWidget extends StatelessWidget {
                 ),
               ],
             ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: TextField(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: TextFormField(
+                initialValue: context.read<MoodBloc>().state.moodEntity.note,
+                onChanged: (value) => context.read<MoodBloc>().add(MoodEvent.updateNote(value)),
                 maxLines: null,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Введите заметку',
                 ),
