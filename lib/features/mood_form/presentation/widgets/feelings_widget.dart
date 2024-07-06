@@ -29,77 +29,69 @@ const tagsJoy = [
   'Экстравагантность',
 ];
 
-class FeelingsWidget extends StatefulWidget {
+class FeelingsWidget extends StatelessWidget {
   const FeelingsWidget({super.key});
-
-  @override
-  State<FeelingsWidget> createState() => _FeelingsWidgetState();
-}
-
-class _FeelingsWidgetState extends State<FeelingsWidget> {
-  String? selectedTag;
-
-  void _onContainerTap(String label) {
-    setState(() {
-      if (selectedTag == label) {
-        selectedTag = null;
-      } else {
-        selectedTag = label;
-      }
-      context.read<MoodBloc>().add(MoodEvent.updateEmotion(selectedTag));
-    });
-  }
-
-  Widget _getEmotionTags(String? emotion) {
-    switch (emotion) {
-      case 'Радость':
-        return const AppTags(tags: tagsJoy);
-      default:
-        return const SizedBox.shrink();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     final labels = [...mapEmotions.keys];
     final images = [...mapEmotions.values];
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const SizedBox(
-          height: 30,
-        ),
-        Text(
-          'Что чувствуешь?',
-          style: AppTextStyles.title,
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxHeight: 124,
-          ),
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: labels.length,
-            itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-                onTap: () => _onContainerTap(labels[index]),
-                child: AppEmotionCard(
-                  image: images[index],
-                  label: labels[index],
-                  isSelected: selectedTag == labels[index],
-                ),
-              );
-            },
-          ),
-        ),
-        if (selectedTag != null) ...[
-          const SizedBox(height: 20),
-          _getEmotionTags(selectedTag),
-        ],
-      ],
+
+    return BlocBuilder<MoodBloc, MoodState>(
+      builder: (context, state) {
+        final selectedTag = state.moodEntity.emotion;
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 30,
+            ),
+            Text(
+              'Что чувствуешь?',
+              style: AppTextStyles.title,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxHeight: 124,
+              ),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: labels.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return GestureDetector(
+                    onTap: () => context.read<MoodBloc>().add(
+                          MoodEvent.updateEmotion(
+                            labels[index],
+                          ),
+                        ),
+                    child: AppEmotionCard(
+                      image: images[index],
+                      label: labels[index],
+                      isSelected: selectedTag == labels[index],
+                    ),
+                  );
+                },
+              ),
+            ),
+            if (selectedTag != null) ...[
+              const SizedBox(height: 20),
+              _getEmotionTags(selectedTag),
+            ],
+          ],
+        );
+      },
     );
+  }
+}
+
+Widget _getEmotionTags(String? emotion) {
+  switch (emotion) {
+    case 'Радость':
+      return const AppTags(tags: tagsJoy);
+    default:
+      return const SizedBox.shrink();
   }
 }

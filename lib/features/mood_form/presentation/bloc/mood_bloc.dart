@@ -27,10 +27,10 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
     _UpdateDateTime event,
     Emitter<MoodState> emit,
   ) async {
-    final newMoodEntity = state.moodEntity.copyWith(dateTime: event.dateTime);
+    final updatedMoodEntity = state.moodEntity.copyWith(dateTime: event.dateTime);
     emit(state.copyWith(
-      moodEntity: newMoodEntity,
-      isComplete: _checkCompletion(newMoodEntity),
+      moodEntity: updatedMoodEntity,
+      isComplete: _checkCompletion(updatedMoodEntity),
     ));
     print('BLOC DATETIME ${state.moodEntity}');
   }
@@ -39,10 +39,13 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
     _UpdateEmotion event,
     Emitter<MoodState> emit,
   ) async {
-    final newMoodEntity = state.moodEntity.copyWith(emotion: event.emotion, subEmotion: null);
+    final updatedMoodEntity = event.emotion == state.moodEntity.emotion
+        ? state.moodEntity.copyWith(emotion: null, subEmotion: null)
+        : state.moodEntity.copyWith(emotion: event.emotion, subEmotion: null);
+
     emit(state.copyWith(
-      moodEntity: newMoodEntity,
-      isComplete: _checkCompletion(newMoodEntity),
+      moodEntity: updatedMoodEntity,
+      isComplete: _checkCompletion(updatedMoodEntity),
     ));
     print('BLOC EMOTION ${state.moodEntity}');
   }
@@ -51,10 +54,19 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
     _UpdateSubEmotion event,
     Emitter<MoodState> emit,
   ) async {
-    final newMoodEntity = state.moodEntity.copyWith(subEmotion: [event.subEmotion ?? '']);
+    final List<String> updatedSubEmotions = List.from(state.moodEntity.subEmotion ?? []);
+    if (updatedSubEmotions.contains(event.subEmotion)) {
+      updatedSubEmotions.remove(event.subEmotion);
+    } else {
+      updatedSubEmotions.add(event.subEmotion!);
+    }
+
+    final updatedMoodEntity = updatedSubEmotions.isEmpty
+        ? state.moodEntity.copyWith(subEmotion: null)
+        : state.moodEntity.copyWith(subEmotion: updatedSubEmotions);
     emit(state.copyWith(
-      moodEntity: newMoodEntity,
-      isComplete: _checkCompletion(newMoodEntity),
+      moodEntity: updatedMoodEntity,
+      isComplete: _checkCompletion(updatedMoodEntity),
     ));
     print('BLOC SUBEMOTION ${state.moodEntity}');
   }
