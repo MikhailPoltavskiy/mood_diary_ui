@@ -26,13 +26,44 @@ class MoodIndicatorWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                 vertical: 16,
               ),
-              child: BlocBuilder<MoodBloc, MoodState>(
+              child: BlocConsumer<MoodBloc, MoodState>(
+                listener: (context, state) {
+                  if (state.isSaved) {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('Успех'),
+                          content: Column(
+                            children: [
+                              const Text('Данные успешно сохранены!'),
+                              Text('Дата: ${state.moodEntity.dateTime}'),
+                              Text('Эмоция: ${state.moodEntity.emotion}'),
+                              Text('Под эмоции: ${state.moodEntity.subEmotion}'),
+                              Text('Уровень стресса: ${state.moodEntity.stress}'),
+                              Text('Самооценка: ${state.moodEntity.selfEsteem}'),
+                              Text('Заметка: ${state.moodEntity.note}'),
+                            ],
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                },
                 builder: (context, state) {
                   return AppButton(
                     label: 'Сохранить',
                     onPressed: state.isComplete
                         ? () {
-                            print('MOOD: ${state.moodEntity}');
+                            context.read<MoodBloc>().add(MoodEvent.saveMood(state.moodEntity));
                           }
                         : null,
                   );

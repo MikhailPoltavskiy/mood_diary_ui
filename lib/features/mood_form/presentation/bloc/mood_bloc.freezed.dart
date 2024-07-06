@@ -24,6 +24,7 @@ mixin _$MoodEvent {
     required TResult Function(double? stress) updateStress,
     required TResult Function(double? selfEsteem) updateSelfEsteem,
     required TResult Function(String? note) updateNote,
+    required TResult Function(MoodEntity moodEntity) saveMood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$MoodEvent {
     TResult? Function(double? stress)? updateStress,
     TResult? Function(double? selfEsteem)? updateSelfEsteem,
     TResult? Function(String? note)? updateNote,
+    TResult? Function(MoodEntity moodEntity)? saveMood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$MoodEvent {
     TResult Function(double? stress)? updateStress,
     TResult Function(double? selfEsteem)? updateSelfEsteem,
     TResult Function(String? note)? updateNote,
+    TResult Function(MoodEntity moodEntity)? saveMood,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$MoodEvent {
     required TResult Function(_UpdateStress value) updateStress,
     required TResult Function(_UpdateSelfEsteem value) updateSelfEsteem,
     required TResult Function(_UpdateNote value) updateNote,
+    required TResult Function(_SaveMood value) saveMood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$MoodEvent {
     TResult? Function(_UpdateStress value)? updateStress,
     TResult? Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult? Function(_UpdateNote value)? updateNote,
+    TResult? Function(_SaveMood value)? saveMood,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$MoodEvent {
     TResult Function(_UpdateStress value)? updateStress,
     TResult Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult Function(_UpdateNote value)? updateNote,
+    TResult Function(_SaveMood value)? saveMood,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,6 +175,7 @@ class _$UpdateDateTimeImpl implements _UpdateDateTime {
     required TResult Function(double? stress) updateStress,
     required TResult Function(double? selfEsteem) updateSelfEsteem,
     required TResult Function(String? note) updateNote,
+    required TResult Function(MoodEntity moodEntity) saveMood,
   }) {
     return updateDateTime(dateTime);
   }
@@ -182,6 +189,7 @@ class _$UpdateDateTimeImpl implements _UpdateDateTime {
     TResult? Function(double? stress)? updateStress,
     TResult? Function(double? selfEsteem)? updateSelfEsteem,
     TResult? Function(String? note)? updateNote,
+    TResult? Function(MoodEntity moodEntity)? saveMood,
   }) {
     return updateDateTime?.call(dateTime);
   }
@@ -195,6 +203,7 @@ class _$UpdateDateTimeImpl implements _UpdateDateTime {
     TResult Function(double? stress)? updateStress,
     TResult Function(double? selfEsteem)? updateSelfEsteem,
     TResult Function(String? note)? updateNote,
+    TResult Function(MoodEntity moodEntity)? saveMood,
     required TResult orElse(),
   }) {
     if (updateDateTime != null) {
@@ -212,6 +221,7 @@ class _$UpdateDateTimeImpl implements _UpdateDateTime {
     required TResult Function(_UpdateStress value) updateStress,
     required TResult Function(_UpdateSelfEsteem value) updateSelfEsteem,
     required TResult Function(_UpdateNote value) updateNote,
+    required TResult Function(_SaveMood value) saveMood,
   }) {
     return updateDateTime(this);
   }
@@ -225,6 +235,7 @@ class _$UpdateDateTimeImpl implements _UpdateDateTime {
     TResult? Function(_UpdateStress value)? updateStress,
     TResult? Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult? Function(_UpdateNote value)? updateNote,
+    TResult? Function(_SaveMood value)? saveMood,
   }) {
     return updateDateTime?.call(this);
   }
@@ -238,6 +249,7 @@ class _$UpdateDateTimeImpl implements _UpdateDateTime {
     TResult Function(_UpdateStress value)? updateStress,
     TResult Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult Function(_UpdateNote value)? updateNote,
+    TResult Function(_SaveMood value)? saveMood,
     required TResult orElse(),
   }) {
     if (updateDateTime != null) {
@@ -327,6 +339,7 @@ class _$UpdateEmotionImpl implements _UpdateEmotion {
     required TResult Function(double? stress) updateStress,
     required TResult Function(double? selfEsteem) updateSelfEsteem,
     required TResult Function(String? note) updateNote,
+    required TResult Function(MoodEntity moodEntity) saveMood,
   }) {
     return updateEmotion(emotion);
   }
@@ -340,6 +353,7 @@ class _$UpdateEmotionImpl implements _UpdateEmotion {
     TResult? Function(double? stress)? updateStress,
     TResult? Function(double? selfEsteem)? updateSelfEsteem,
     TResult? Function(String? note)? updateNote,
+    TResult? Function(MoodEntity moodEntity)? saveMood,
   }) {
     return updateEmotion?.call(emotion);
   }
@@ -353,6 +367,7 @@ class _$UpdateEmotionImpl implements _UpdateEmotion {
     TResult Function(double? stress)? updateStress,
     TResult Function(double? selfEsteem)? updateSelfEsteem,
     TResult Function(String? note)? updateNote,
+    TResult Function(MoodEntity moodEntity)? saveMood,
     required TResult orElse(),
   }) {
     if (updateEmotion != null) {
@@ -370,6 +385,7 @@ class _$UpdateEmotionImpl implements _UpdateEmotion {
     required TResult Function(_UpdateStress value) updateStress,
     required TResult Function(_UpdateSelfEsteem value) updateSelfEsteem,
     required TResult Function(_UpdateNote value) updateNote,
+    required TResult Function(_SaveMood value) saveMood,
   }) {
     return updateEmotion(this);
   }
@@ -383,6 +399,7 @@ class _$UpdateEmotionImpl implements _UpdateEmotion {
     TResult? Function(_UpdateStress value)? updateStress,
     TResult? Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult? Function(_UpdateNote value)? updateNote,
+    TResult? Function(_SaveMood value)? saveMood,
   }) {
     return updateEmotion?.call(this);
   }
@@ -396,6 +413,7 @@ class _$UpdateEmotionImpl implements _UpdateEmotion {
     TResult Function(_UpdateStress value)? updateStress,
     TResult Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult Function(_UpdateNote value)? updateNote,
+    TResult Function(_SaveMood value)? saveMood,
     required TResult orElse(),
   }) {
     if (updateEmotion != null) {
@@ -486,6 +504,7 @@ class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
     required TResult Function(double? stress) updateStress,
     required TResult Function(double? selfEsteem) updateSelfEsteem,
     required TResult Function(String? note) updateNote,
+    required TResult Function(MoodEntity moodEntity) saveMood,
   }) {
     return updateSubEmotion(subEmotion);
   }
@@ -499,6 +518,7 @@ class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
     TResult? Function(double? stress)? updateStress,
     TResult? Function(double? selfEsteem)? updateSelfEsteem,
     TResult? Function(String? note)? updateNote,
+    TResult? Function(MoodEntity moodEntity)? saveMood,
   }) {
     return updateSubEmotion?.call(subEmotion);
   }
@@ -512,6 +532,7 @@ class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
     TResult Function(double? stress)? updateStress,
     TResult Function(double? selfEsteem)? updateSelfEsteem,
     TResult Function(String? note)? updateNote,
+    TResult Function(MoodEntity moodEntity)? saveMood,
     required TResult orElse(),
   }) {
     if (updateSubEmotion != null) {
@@ -529,6 +550,7 @@ class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
     required TResult Function(_UpdateStress value) updateStress,
     required TResult Function(_UpdateSelfEsteem value) updateSelfEsteem,
     required TResult Function(_UpdateNote value) updateNote,
+    required TResult Function(_SaveMood value) saveMood,
   }) {
     return updateSubEmotion(this);
   }
@@ -542,6 +564,7 @@ class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
     TResult? Function(_UpdateStress value)? updateStress,
     TResult? Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult? Function(_UpdateNote value)? updateNote,
+    TResult? Function(_SaveMood value)? saveMood,
   }) {
     return updateSubEmotion?.call(this);
   }
@@ -555,6 +578,7 @@ class _$UpdateSubEmotionImpl implements _UpdateSubEmotion {
     TResult Function(_UpdateStress value)? updateStress,
     TResult Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult Function(_UpdateNote value)? updateNote,
+    TResult Function(_SaveMood value)? saveMood,
     required TResult orElse(),
   }) {
     if (updateSubEmotion != null) {
@@ -644,6 +668,7 @@ class _$UpdateStressImpl implements _UpdateStress {
     required TResult Function(double? stress) updateStress,
     required TResult Function(double? selfEsteem) updateSelfEsteem,
     required TResult Function(String? note) updateNote,
+    required TResult Function(MoodEntity moodEntity) saveMood,
   }) {
     return updateStress(stress);
   }
@@ -657,6 +682,7 @@ class _$UpdateStressImpl implements _UpdateStress {
     TResult? Function(double? stress)? updateStress,
     TResult? Function(double? selfEsteem)? updateSelfEsteem,
     TResult? Function(String? note)? updateNote,
+    TResult? Function(MoodEntity moodEntity)? saveMood,
   }) {
     return updateStress?.call(stress);
   }
@@ -670,6 +696,7 @@ class _$UpdateStressImpl implements _UpdateStress {
     TResult Function(double? stress)? updateStress,
     TResult Function(double? selfEsteem)? updateSelfEsteem,
     TResult Function(String? note)? updateNote,
+    TResult Function(MoodEntity moodEntity)? saveMood,
     required TResult orElse(),
   }) {
     if (updateStress != null) {
@@ -687,6 +714,7 @@ class _$UpdateStressImpl implements _UpdateStress {
     required TResult Function(_UpdateStress value) updateStress,
     required TResult Function(_UpdateSelfEsteem value) updateSelfEsteem,
     required TResult Function(_UpdateNote value) updateNote,
+    required TResult Function(_SaveMood value) saveMood,
   }) {
     return updateStress(this);
   }
@@ -700,6 +728,7 @@ class _$UpdateStressImpl implements _UpdateStress {
     TResult? Function(_UpdateStress value)? updateStress,
     TResult? Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult? Function(_UpdateNote value)? updateNote,
+    TResult? Function(_SaveMood value)? saveMood,
   }) {
     return updateStress?.call(this);
   }
@@ -713,6 +742,7 @@ class _$UpdateStressImpl implements _UpdateStress {
     TResult Function(_UpdateStress value)? updateStress,
     TResult Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult Function(_UpdateNote value)? updateNote,
+    TResult Function(_SaveMood value)? saveMood,
     required TResult orElse(),
   }) {
     if (updateStress != null) {
@@ -803,6 +833,7 @@ class _$UpdateSelfEsteemImpl implements _UpdateSelfEsteem {
     required TResult Function(double? stress) updateStress,
     required TResult Function(double? selfEsteem) updateSelfEsteem,
     required TResult Function(String? note) updateNote,
+    required TResult Function(MoodEntity moodEntity) saveMood,
   }) {
     return updateSelfEsteem(selfEsteem);
   }
@@ -816,6 +847,7 @@ class _$UpdateSelfEsteemImpl implements _UpdateSelfEsteem {
     TResult? Function(double? stress)? updateStress,
     TResult? Function(double? selfEsteem)? updateSelfEsteem,
     TResult? Function(String? note)? updateNote,
+    TResult? Function(MoodEntity moodEntity)? saveMood,
   }) {
     return updateSelfEsteem?.call(selfEsteem);
   }
@@ -829,6 +861,7 @@ class _$UpdateSelfEsteemImpl implements _UpdateSelfEsteem {
     TResult Function(double? stress)? updateStress,
     TResult Function(double? selfEsteem)? updateSelfEsteem,
     TResult Function(String? note)? updateNote,
+    TResult Function(MoodEntity moodEntity)? saveMood,
     required TResult orElse(),
   }) {
     if (updateSelfEsteem != null) {
@@ -846,6 +879,7 @@ class _$UpdateSelfEsteemImpl implements _UpdateSelfEsteem {
     required TResult Function(_UpdateStress value) updateStress,
     required TResult Function(_UpdateSelfEsteem value) updateSelfEsteem,
     required TResult Function(_UpdateNote value) updateNote,
+    required TResult Function(_SaveMood value) saveMood,
   }) {
     return updateSelfEsteem(this);
   }
@@ -859,6 +893,7 @@ class _$UpdateSelfEsteemImpl implements _UpdateSelfEsteem {
     TResult? Function(_UpdateStress value)? updateStress,
     TResult? Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult? Function(_UpdateNote value)? updateNote,
+    TResult? Function(_SaveMood value)? saveMood,
   }) {
     return updateSelfEsteem?.call(this);
   }
@@ -872,6 +907,7 @@ class _$UpdateSelfEsteemImpl implements _UpdateSelfEsteem {
     TResult Function(_UpdateStress value)? updateStress,
     TResult Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult Function(_UpdateNote value)? updateNote,
+    TResult Function(_SaveMood value)? saveMood,
     required TResult orElse(),
   }) {
     if (updateSelfEsteem != null) {
@@ -961,6 +997,7 @@ class _$UpdateNoteImpl implements _UpdateNote {
     required TResult Function(double? stress) updateStress,
     required TResult Function(double? selfEsteem) updateSelfEsteem,
     required TResult Function(String? note) updateNote,
+    required TResult Function(MoodEntity moodEntity) saveMood,
   }) {
     return updateNote(note);
   }
@@ -974,6 +1011,7 @@ class _$UpdateNoteImpl implements _UpdateNote {
     TResult? Function(double? stress)? updateStress,
     TResult? Function(double? selfEsteem)? updateSelfEsteem,
     TResult? Function(String? note)? updateNote,
+    TResult? Function(MoodEntity moodEntity)? saveMood,
   }) {
     return updateNote?.call(note);
   }
@@ -987,6 +1025,7 @@ class _$UpdateNoteImpl implements _UpdateNote {
     TResult Function(double? stress)? updateStress,
     TResult Function(double? selfEsteem)? updateSelfEsteem,
     TResult Function(String? note)? updateNote,
+    TResult Function(MoodEntity moodEntity)? saveMood,
     required TResult orElse(),
   }) {
     if (updateNote != null) {
@@ -1004,6 +1043,7 @@ class _$UpdateNoteImpl implements _UpdateNote {
     required TResult Function(_UpdateStress value) updateStress,
     required TResult Function(_UpdateSelfEsteem value) updateSelfEsteem,
     required TResult Function(_UpdateNote value) updateNote,
+    required TResult Function(_SaveMood value) saveMood,
   }) {
     return updateNote(this);
   }
@@ -1017,6 +1057,7 @@ class _$UpdateNoteImpl implements _UpdateNote {
     TResult? Function(_UpdateStress value)? updateStress,
     TResult? Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult? Function(_UpdateNote value)? updateNote,
+    TResult? Function(_SaveMood value)? saveMood,
   }) {
     return updateNote?.call(this);
   }
@@ -1030,6 +1071,7 @@ class _$UpdateNoteImpl implements _UpdateNote {
     TResult Function(_UpdateStress value)? updateStress,
     TResult Function(_UpdateSelfEsteem value)? updateSelfEsteem,
     TResult Function(_UpdateNote value)? updateNote,
+    TResult Function(_SaveMood value)? saveMood,
     required TResult orElse(),
   }) {
     if (updateNote != null) {
@@ -1049,11 +1091,186 @@ abstract class _UpdateNote implements MoodEvent {
 }
 
 /// @nodoc
+abstract class _$$SaveMoodImplCopyWith<$Res> {
+  factory _$$SaveMoodImplCopyWith(
+          _$SaveMoodImpl value, $Res Function(_$SaveMoodImpl) then) =
+      __$$SaveMoodImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MoodEntity moodEntity});
+
+  $MoodEntityCopyWith<$Res> get moodEntity;
+}
+
+/// @nodoc
+class __$$SaveMoodImplCopyWithImpl<$Res>
+    extends _$MoodEventCopyWithImpl<$Res, _$SaveMoodImpl>
+    implements _$$SaveMoodImplCopyWith<$Res> {
+  __$$SaveMoodImplCopyWithImpl(
+      _$SaveMoodImpl _value, $Res Function(_$SaveMoodImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? moodEntity = null,
+  }) {
+    return _then(_$SaveMoodImpl(
+      null == moodEntity
+          ? _value.moodEntity
+          : moodEntity // ignore: cast_nullable_to_non_nullable
+              as MoodEntity,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MoodEntityCopyWith<$Res> get moodEntity {
+    return $MoodEntityCopyWith<$Res>(_value.moodEntity, (value) {
+      return _then(_value.copyWith(moodEntity: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$SaveMoodImpl implements _SaveMood {
+  const _$SaveMoodImpl(this.moodEntity);
+
+  @override
+  final MoodEntity moodEntity;
+
+  @override
+  String toString() {
+    return 'MoodEvent.saveMood(moodEntity: $moodEntity)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveMoodImpl &&
+            (identical(other.moodEntity, moodEntity) ||
+                other.moodEntity == moodEntity));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, moodEntity);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveMoodImplCopyWith<_$SaveMoodImpl> get copyWith =>
+      __$$SaveMoodImplCopyWithImpl<_$SaveMoodImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? dateTime) updateDateTime,
+    required TResult Function(String? emotion) updateEmotion,
+    required TResult Function(String? subEmotion) updateSubEmotion,
+    required TResult Function(double? stress) updateStress,
+    required TResult Function(double? selfEsteem) updateSelfEsteem,
+    required TResult Function(String? note) updateNote,
+    required TResult Function(MoodEntity moodEntity) saveMood,
+  }) {
+    return saveMood(moodEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? dateTime)? updateDateTime,
+    TResult? Function(String? emotion)? updateEmotion,
+    TResult? Function(String? subEmotion)? updateSubEmotion,
+    TResult? Function(double? stress)? updateStress,
+    TResult? Function(double? selfEsteem)? updateSelfEsteem,
+    TResult? Function(String? note)? updateNote,
+    TResult? Function(MoodEntity moodEntity)? saveMood,
+  }) {
+    return saveMood?.call(moodEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? dateTime)? updateDateTime,
+    TResult Function(String? emotion)? updateEmotion,
+    TResult Function(String? subEmotion)? updateSubEmotion,
+    TResult Function(double? stress)? updateStress,
+    TResult Function(double? selfEsteem)? updateSelfEsteem,
+    TResult Function(String? note)? updateNote,
+    TResult Function(MoodEntity moodEntity)? saveMood,
+    required TResult orElse(),
+  }) {
+    if (saveMood != null) {
+      return saveMood(moodEntity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UpdateDateTime value) updateDateTime,
+    required TResult Function(_UpdateEmotion value) updateEmotion,
+    required TResult Function(_UpdateSubEmotion value) updateSubEmotion,
+    required TResult Function(_UpdateStress value) updateStress,
+    required TResult Function(_UpdateSelfEsteem value) updateSelfEsteem,
+    required TResult Function(_UpdateNote value) updateNote,
+    required TResult Function(_SaveMood value) saveMood,
+  }) {
+    return saveMood(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UpdateDateTime value)? updateDateTime,
+    TResult? Function(_UpdateEmotion value)? updateEmotion,
+    TResult? Function(_UpdateSubEmotion value)? updateSubEmotion,
+    TResult? Function(_UpdateStress value)? updateStress,
+    TResult? Function(_UpdateSelfEsteem value)? updateSelfEsteem,
+    TResult? Function(_UpdateNote value)? updateNote,
+    TResult? Function(_SaveMood value)? saveMood,
+  }) {
+    return saveMood?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UpdateDateTime value)? updateDateTime,
+    TResult Function(_UpdateEmotion value)? updateEmotion,
+    TResult Function(_UpdateSubEmotion value)? updateSubEmotion,
+    TResult Function(_UpdateStress value)? updateStress,
+    TResult Function(_UpdateSelfEsteem value)? updateSelfEsteem,
+    TResult Function(_UpdateNote value)? updateNote,
+    TResult Function(_SaveMood value)? saveMood,
+    required TResult orElse(),
+  }) {
+    if (saveMood != null) {
+      return saveMood(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveMood implements MoodEvent {
+  const factory _SaveMood(final MoodEntity moodEntity) = _$SaveMoodImpl;
+
+  MoodEntity get moodEntity;
+  @JsonKey(ignore: true)
+  _$$SaveMoodImplCopyWith<_$SaveMoodImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MoodState {
   MoodEntity get moodEntity => throw _privateConstructorUsedError;
   dynamic get isChangedStress => throw _privateConstructorUsedError;
   dynamic get isChangedSelfEsteem => throw _privateConstructorUsedError;
   bool get isComplete => throw _privateConstructorUsedError;
+  bool get isSaved => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MoodStateCopyWith<MoodState> get copyWith =>
@@ -1069,7 +1286,8 @@ abstract class $MoodStateCopyWith<$Res> {
       {MoodEntity moodEntity,
       dynamic isChangedStress,
       dynamic isChangedSelfEsteem,
-      bool isComplete});
+      bool isComplete,
+      bool isSaved});
 
   $MoodEntityCopyWith<$Res> get moodEntity;
 }
@@ -1091,6 +1309,7 @@ class _$MoodStateCopyWithImpl<$Res, $Val extends MoodState>
     Object? isChangedStress = freezed,
     Object? isChangedSelfEsteem = freezed,
     Object? isComplete = null,
+    Object? isSaved = null,
   }) {
     return _then(_value.copyWith(
       moodEntity: null == moodEntity
@@ -1108,6 +1327,10 @@ class _$MoodStateCopyWithImpl<$Res, $Val extends MoodState>
       isComplete: null == isComplete
           ? _value.isComplete
           : isComplete // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSaved: null == isSaved
+          ? _value.isSaved
+          : isSaved // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -1133,7 +1356,8 @@ abstract class _$$MoodStateImplCopyWith<$Res>
       {MoodEntity moodEntity,
       dynamic isChangedStress,
       dynamic isChangedSelfEsteem,
-      bool isComplete});
+      bool isComplete,
+      bool isSaved});
 
   @override
   $MoodEntityCopyWith<$Res> get moodEntity;
@@ -1154,6 +1378,7 @@ class __$$MoodStateImplCopyWithImpl<$Res>
     Object? isChangedStress = freezed,
     Object? isChangedSelfEsteem = freezed,
     Object? isComplete = null,
+    Object? isSaved = null,
   }) {
     return _then(_$MoodStateImpl(
       moodEntity: null == moodEntity
@@ -1170,6 +1395,10 @@ class __$$MoodStateImplCopyWithImpl<$Res>
           ? _value.isComplete
           : isComplete // ignore: cast_nullable_to_non_nullable
               as bool,
+      isSaved: null == isSaved
+          ? _value.isSaved
+          : isSaved // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1181,7 +1410,8 @@ class _$MoodStateImpl implements _MoodState {
       {required this.moodEntity,
       this.isChangedStress = false,
       this.isChangedSelfEsteem = false,
-      this.isComplete = false});
+      this.isComplete = false,
+      this.isSaved = false});
 
   @override
   final MoodEntity moodEntity;
@@ -1194,10 +1424,13 @@ class _$MoodStateImpl implements _MoodState {
   @override
   @JsonKey()
   final bool isComplete;
+  @override
+  @JsonKey()
+  final bool isSaved;
 
   @override
   String toString() {
-    return 'MoodState(moodEntity: $moodEntity, isChangedStress: $isChangedStress, isChangedSelfEsteem: $isChangedSelfEsteem, isComplete: $isComplete)';
+    return 'MoodState(moodEntity: $moodEntity, isChangedStress: $isChangedStress, isChangedSelfEsteem: $isChangedSelfEsteem, isComplete: $isComplete, isSaved: $isSaved)';
   }
 
   @override
@@ -1212,7 +1445,8 @@ class _$MoodStateImpl implements _MoodState {
             const DeepCollectionEquality()
                 .equals(other.isChangedSelfEsteem, isChangedSelfEsteem) &&
             (identical(other.isComplete, isComplete) ||
-                other.isComplete == isComplete));
+                other.isComplete == isComplete) &&
+            (identical(other.isSaved, isSaved) || other.isSaved == isSaved));
   }
 
   @override
@@ -1221,7 +1455,8 @@ class _$MoodStateImpl implements _MoodState {
       moodEntity,
       const DeepCollectionEquality().hash(isChangedStress),
       const DeepCollectionEquality().hash(isChangedSelfEsteem),
-      isComplete);
+      isComplete,
+      isSaved);
 
   @JsonKey(ignore: true)
   @override
@@ -1235,7 +1470,8 @@ abstract class _MoodState implements MoodState {
       {required final MoodEntity moodEntity,
       final dynamic isChangedStress,
       final dynamic isChangedSelfEsteem,
-      final bool isComplete}) = _$MoodStateImpl;
+      final bool isComplete,
+      final bool isSaved}) = _$MoodStateImpl;
 
   @override
   MoodEntity get moodEntity;
@@ -1245,6 +1481,8 @@ abstract class _MoodState implements MoodState {
   dynamic get isChangedSelfEsteem;
   @override
   bool get isComplete;
+  @override
+  bool get isSaved;
   @override
   @JsonKey(ignore: true)
   _$$MoodStateImplCopyWith<_$MoodStateImpl> get copyWith =>

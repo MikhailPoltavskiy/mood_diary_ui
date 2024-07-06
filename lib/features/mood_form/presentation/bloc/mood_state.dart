@@ -7,19 +7,6 @@ class MoodState with _$MoodState {
     @Default(false) isChangedStress,
     @Default(false) isChangedSelfEsteem,
     @Default(false) bool isComplete,
+    @Default(false) bool isSaved,
   }) = _MoodState;
-
-  // factory MoodState.initial() => const MoodState(
-  //       moodEntity: MoodEntity(),
-  //       isComplete: false,
-  //     );
-
-  // bool get isComplete {
-  //   return moodEntity.dateTime != null &&
-  //       moodEntity.emotion != null &&
-  //       moodEntity.subEmotion != null &&
-  //       moodEntity.stress != null &&
-  //       moodEntity.selfEsteem != null &&
-  //       moodEntity.note != null;
-  // }
 }

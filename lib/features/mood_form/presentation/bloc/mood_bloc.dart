@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mood_diary_ui/features/mood_form/models/mood_entity.dart';
@@ -21,6 +22,7 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
     on<_UpdateStress>(_updateStress);
     on<_UpdateSelfEsteem>(_updateSelfEsteem);
     on<_UpdateNote>(_updateNote);
+    on<_SaveMood>(_saveMood);
   }
 
   Future<void> _updateDateTime(
@@ -32,7 +34,6 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
       moodEntity: updatedMoodEntity,
       isComplete: _checkCompletion(updatedMoodEntity),
     ));
-    print('BLOC DATETIME ${state.moodEntity}');
   }
 
   Future<void> _updateEmotion(
@@ -47,7 +48,6 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
       moodEntity: updatedMoodEntity,
       isComplete: _checkCompletion(updatedMoodEntity),
     ));
-    print('BLOC EMOTION ${state.moodEntity}');
   }
 
   Future<void> _updateSubEmotion(
@@ -68,45 +68,65 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
       moodEntity: updatedMoodEntity,
       isComplete: _checkCompletion(updatedMoodEntity),
     ));
-    print('BLOC SUBEMOTION ${state.moodEntity}');
   }
 
   Future<void> _updateStress(
     _UpdateStress event,
     Emitter<MoodState> emit,
   ) async {
-    final newMoodEntity = state.moodEntity.copyWith(stress: event.stress);
+    final updatedMoodEntity = state.moodEntity.copyWith(stress: event.stress);
     emit(state.copyWith(
-      moodEntity: newMoodEntity,
+      moodEntity: updatedMoodEntity,
       isChangedStress: true,
-      isComplete: _checkCompletion(newMoodEntity),
+      isComplete: _checkCompletion(updatedMoodEntity),
     ));
-    print('BLOC STRESS ${state.moodEntity}');
   }
 
   Future<void> _updateSelfEsteem(
     _UpdateSelfEsteem event,
     Emitter<MoodState> emit,
   ) async {
-    final newMoodEntity = state.moodEntity.copyWith(selfEsteem: event.selfEsteem);
+    final updatedMoodEntity = state.moodEntity.copyWith(selfEsteem: event.selfEsteem);
     emit(state.copyWith(
-      moodEntity: newMoodEntity,
+      moodEntity: updatedMoodEntity,
       isChangedSelfEsteem: true,
-      isComplete: _checkCompletion(newMoodEntity),
+      isComplete: _checkCompletion(updatedMoodEntity),
     ));
-    print('BLOC SELFESTEEM ${state.moodEntity}');
   }
 
   Future<void> _updateNote(
     _UpdateNote event,
     Emitter<MoodState> emit,
   ) async {
-    final newMoodEntity = state.moodEntity.copyWith(note: event.note);
+    final updatedMoodEntity = state.moodEntity.copyWith(note: event.note);
     emit(state.copyWith(
-      moodEntity: newMoodEntity,
-      isComplete: _checkCompletion(newMoodEntity),
+      moodEntity: updatedMoodEntity,
+      isComplete: _checkCompletion(updatedMoodEntity),
     ));
-    print('BLOC NOTE ${state.moodEntity}');
+  }
+
+  Future<void> _saveMood(
+    _SaveMood event,
+    Emitter<MoodState> emit,
+  ) async {
+    if (kDebugMode) {
+      print('BLOC SAVEMOOD ${state.moodEntity}');
+    }
+    emit(state.copyWith(
+      isSaved: true,
+    ));
+
+    emit(
+      MoodState(
+        moodEntity: MoodEntity(
+          dateTime: DateTime.now(),
+        ),
+        isChangedStress: false,
+        isChangedSelfEsteem: false,
+        isComplete: false,
+        isSaved: false,
+      ),
+    );
   }
 
   bool _checkCompletion(MoodEntity moodEntity) {
