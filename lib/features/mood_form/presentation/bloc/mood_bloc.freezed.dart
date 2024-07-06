@@ -1149,11 +1149,14 @@ class __$$MoodStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MoodStateImpl implements _MoodState {
-  const _$MoodStateImpl({required this.moodEntity, required this.isComplete});
+  const _$MoodStateImpl(
+      {this.moodEntity = const MoodEntity(), this.isComplete = false});
 
   @override
+  @JsonKey()
   final MoodEntity moodEntity;
   @override
+  @JsonKey()
   final bool isComplete;
 
   @override
@@ -1184,8 +1187,7 @@ class _$MoodStateImpl implements _MoodState {
 
 abstract class _MoodState implements MoodState {
   const factory _MoodState(
-      {required final MoodEntity moodEntity,
-      required final bool isComplete}) = _$MoodStateImpl;
+      {final MoodEntity moodEntity, final bool isComplete}) = _$MoodStateImpl;
 
   @override
   MoodEntity get moodEntity;

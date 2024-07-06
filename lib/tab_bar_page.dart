@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:mood_diary_ui/core/app_ui/app_ui.dart';
 import 'package:mood_diary_ui/core/generated/assets.gen.dart';
 import 'package:mood_diary_ui/features/mood_form/presentation/bloc/mood_bloc.dart';
+import 'package:mood_diary_ui/features/mood_form/presentation/widgets/calendar.dart';
 import 'package:mood_diary_ui/features/mood_form/presentation/widgets/mood_indicators_widget.dart';
 import 'package:mood_diary_ui/features/statistics/presentation/widgets/statistics_widget.dart';
 
@@ -17,7 +18,6 @@ class TabBarPage extends StatefulWidget {
 
 class _TabBarPageState extends State<TabBarPage> with TickerProviderStateMixin {
   late final TabController _tabController;
-  DateTime _selectedDate = DateTime.now();
 
   @override
   void initState() {
@@ -26,21 +26,6 @@ class _TabBarPageState extends State<TabBarPage> with TickerProviderStateMixin {
       length: 2,
       vsync: this,
     );
-  }
-
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: _selectedDate,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2101),
-    );
-    if (picked != null && picked != _selectedDate) {
-      context.read<MoodBloc>().add(MoodEvent.updateDateTime(picked));
-      setState(() {
-        _selectedDate = picked;
-      });
-    }
   }
 
   @override
@@ -55,11 +40,15 @@ class _TabBarPageState extends State<TabBarPage> with TickerProviderStateMixin {
       appBar: AppBar(
         toolbarHeight: 68,
         centerTitle: true,
-        title: Text(
-          DateFormat('dd MMMM hh:mm', 'ru').format(_selectedDate),
-          style: AppTextStyles.textAppBar.copyWith(
-            color: AppColors.grayTwo,
-          ),
+        title: BlocBuilder<MoodBloc, MoodState>(
+          builder: (context, state) {
+            return Text(
+              DateFormat('dd MMMM hh:mm', 'ru').format(state.moodEntity.dateTime!),
+              style: AppTextStyles.textAppBar.copyWith(
+                color: AppColors.grayTwo,
+              ),
+            );
+          },
         ),
         actions: [
           IconButton(
@@ -72,7 +61,7 @@ class _TabBarPageState extends State<TabBarPage> with TickerProviderStateMixin {
                 BlendMode.srcIn,
               ),
             ),
-            onPressed: () => _selectDate(context),
+            onPressed: () => selectDate(context),
           ),
         ],
       ),

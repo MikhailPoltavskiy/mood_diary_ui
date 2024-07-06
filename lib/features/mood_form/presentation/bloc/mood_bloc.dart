@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mood_diary_ui/features/mood_form/models/mood_entity.dart';
 
@@ -7,7 +7,14 @@ part 'mood_state.dart';
 part 'mood_bloc.freezed.dart';
 
 class MoodBloc extends Bloc<MoodEvent, MoodState> {
-  MoodBloc() : super(MoodState.initial()) {
+  MoodBloc()
+      : super(
+          MoodState(
+            moodEntity: MoodEntity(
+              dateTime: DateTime.now(),
+            ),
+          ),
+        ) {
     on<_UpdateDateTime>(_updateDateTime);
     on<_UpdateEmotion>(_updateEmotion);
     on<_UpdateSubEmotion>(_updateSubEmotion);
@@ -32,7 +39,7 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
     _UpdateEmotion event,
     Emitter<MoodState> emit,
   ) async {
-    final newMoodEntity = state.moodEntity.copyWith(emotion: event.emotion);
+    final newMoodEntity = state.moodEntity.copyWith(emotion: event.emotion, subEmotion: null);
     emit(state.copyWith(
       moodEntity: newMoodEntity,
       isComplete: _checkCompletion(newMoodEntity),

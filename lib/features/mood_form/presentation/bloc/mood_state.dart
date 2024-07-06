@@ -4,11 +4,20 @@ part of 'mood_bloc.dart';
 class MoodState with _$MoodState {
   const factory MoodState({
     required MoodEntity moodEntity,
-    required bool isComplete,
+    @Default(false) bool isComplete,
   }) = _MoodState;
 
-  factory MoodState.initial() => const MoodState(
-        moodEntity: MoodEntity(),
-        isComplete: false,
-      );
+  // factory MoodState.initial() => const MoodState(
+  //       moodEntity: MoodEntity(),
+  //       isComplete: false,
+  //     );
+
+  // bool get isComplete {
+  //   return moodEntity.dateTime != null &&
+  //       moodEntity.emotion != null &&
+  //       moodEntity.subEmotion != null &&
+  //       moodEntity.stress != null &&
+  //       moodEntity.selfEsteem != null &&
+  //       moodEntity.note != null;
+  // }
 }
