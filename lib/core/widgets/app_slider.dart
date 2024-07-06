@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mood_diary_ui/core/app_ui/app_ui.dart';
+import 'package:mood_diary_ui/features/mood_form/models/mood_entity.dart';
+import 'package:mood_diary_ui/features/mood_form/presentation/bloc/mood_bloc.dart';
 
 class AppSlider extends StatefulWidget {
   const AppSlider({
@@ -7,9 +10,13 @@ class AppSlider extends StatefulWidget {
     required this.onChanged,
     required this.startLabel,
     required this.finishLabel,
+    required this.valueSelector,
+    required this.eventCreator,
   });
 
   final void Function(double stressLevel) onChanged;
+  final double Function(MoodEntity moodEntity) valueSelector;
+  final MoodEvent Function(double value) eventCreator;
   final String startLabel;
   final String finishLabel;
 
@@ -21,13 +28,13 @@ class _AppSliderState extends State<AppSlider> {
   double _stressLevel = 0.5;
   bool _isChanged = false;
 
-  void _onSliderValueChanged(double value) {
-    setState(() {
-      _stressLevel = value;
-      _isChanged = true;
-      widget.onChanged(value);
-    });
-  }
+  // void _onSliderValueChanged(double value) {
+  //   setState(() {
+  //     _stressLevel = value;
+  //     _isChanged = true;
+  //     widget.onChanged(value);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -44,61 +51,71 @@ class _AppSliderState extends State<AppSlider> {
           ),
         ],
       ),
-      child: Stack(
-        children: [
-          SliderTheme(
-            data: SliderTheme.of(context).copyWith(
-              activeTrackColor: _isChanged ? AppColors.tangerine : AppColors.grayFive,
-              inactiveTrackColor: AppColors.grayFive,
-              thumbColor: _isChanged ? AppColors.tangerine : AppColors.grayFive,
-              thumbShape: const _CustomSliderThumbCircle(
-                thumbRadius: 12,
-              ),
-            ),
-            child: Slider(
-              value: _stressLevel,
-              min: 0,
-              max: 1,
-              onChanged: _onSliderValueChanged,
-            ),
-          ),
-          Positioned(
-            bottom: 10,
-            left: 20,
-            child: Text(
-              widget.startLabel,
-              style: AppTextStyles.textTag.copyWith(
-                color: AppColors.graySix,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 10,
-            right: 20,
-            child: Text(
-              widget.finishLabel,
-              style: AppTextStyles.textTag.copyWith(
-                color: AppColors.graySix,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 20,
-            left: 25,
-            right: 25,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(
-                6,
-                (index) => Container(
-                  width: 2,
-                  height: 8,
-                  color: AppColors.grayFive,
+      child: BlocBuilder<MoodBloc, MoodState>(
+        builder: (context, state) {
+          // _isChanged = state.isChangedStress;
+          return Stack(
+            children: [
+              SliderTheme(
+                data: SliderTheme.of(context).copyWith(
+                  activeTrackColor: _isChanged ? AppColors.tangerine : AppColors.grayFive,
+                  inactiveTrackColor: AppColors.grayFive,
+                  thumbColor: _isChanged ? AppColors.tangerine : AppColors.grayFive,
+                  thumbShape: const _CustomSliderThumbCircle(
+                    thumbRadius: 12,
+                  ),
+                ),
+                child: Slider(
+                  // value: _stressLevel,
+                  value: widget.valueSelector(state.moodEntity),
+                  min: 0,
+                  max: 1,
+                  // onChanged: _onSliderValueChanged,
+                  onChanged: (value) {
+                    // _isChanged = true;
+                    context.read<MoodBloc>().add(widget.eventCreator(value));
+                  },
                 ),
               ),
-            ),
-          ),
-        ],
+              Positioned(
+                bottom: 10,
+                left: 20,
+                child: Text(
+                  widget.startLabel,
+                  style: AppTextStyles.textTag.copyWith(
+                    color: AppColors.graySix,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 10,
+                right: 20,
+                child: Text(
+                  widget.finishLabel,
+                  style: AppTextStyles.textTag.copyWith(
+                    color: AppColors.graySix,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 20,
+                left: 25,
+                right: 25,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(
+                    6,
+                    (index) => Container(
+                      width: 2,
+                      height: 8,
+                      color: AppColors.grayFive,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

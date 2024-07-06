@@ -1051,6 +1051,8 @@ abstract class _UpdateNote implements MoodEvent {
 /// @nodoc
 mixin _$MoodState {
   MoodEntity get moodEntity => throw _privateConstructorUsedError;
+  dynamic get isChangedStress => throw _privateConstructorUsedError;
+  dynamic get isChangedSelfEsteem => throw _privateConstructorUsedError;
   bool get isComplete => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1063,7 +1065,11 @@ abstract class $MoodStateCopyWith<$Res> {
   factory $MoodStateCopyWith(MoodState value, $Res Function(MoodState) then) =
       _$MoodStateCopyWithImpl<$Res, MoodState>;
   @useResult
-  $Res call({MoodEntity moodEntity, bool isComplete});
+  $Res call(
+      {MoodEntity moodEntity,
+      dynamic isChangedStress,
+      dynamic isChangedSelfEsteem,
+      bool isComplete});
 
   $MoodEntityCopyWith<$Res> get moodEntity;
 }
@@ -1082,6 +1088,8 @@ class _$MoodStateCopyWithImpl<$Res, $Val extends MoodState>
   @override
   $Res call({
     Object? moodEntity = null,
+    Object? isChangedStress = freezed,
+    Object? isChangedSelfEsteem = freezed,
     Object? isComplete = null,
   }) {
     return _then(_value.copyWith(
@@ -1089,6 +1097,14 @@ class _$MoodStateCopyWithImpl<$Res, $Val extends MoodState>
           ? _value.moodEntity
           : moodEntity // ignore: cast_nullable_to_non_nullable
               as MoodEntity,
+      isChangedStress: freezed == isChangedStress
+          ? _value.isChangedStress
+          : isChangedStress // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      isChangedSelfEsteem: freezed == isChangedSelfEsteem
+          ? _value.isChangedSelfEsteem
+          : isChangedSelfEsteem // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       isComplete: null == isComplete
           ? _value.isComplete
           : isComplete // ignore: cast_nullable_to_non_nullable
@@ -1113,7 +1129,11 @@ abstract class _$$MoodStateImplCopyWith<$Res>
       __$$MoodStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({MoodEntity moodEntity, bool isComplete});
+  $Res call(
+      {MoodEntity moodEntity,
+      dynamic isChangedStress,
+      dynamic isChangedSelfEsteem,
+      bool isComplete});
 
   @override
   $MoodEntityCopyWith<$Res> get moodEntity;
@@ -1131,6 +1151,8 @@ class __$$MoodStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? moodEntity = null,
+    Object? isChangedStress = freezed,
+    Object? isChangedSelfEsteem = freezed,
     Object? isComplete = null,
   }) {
     return _then(_$MoodStateImpl(
@@ -1138,6 +1160,12 @@ class __$$MoodStateImplCopyWithImpl<$Res>
           ? _value.moodEntity
           : moodEntity // ignore: cast_nullable_to_non_nullable
               as MoodEntity,
+      isChangedStress: freezed == isChangedStress
+          ? _value.isChangedStress!
+          : isChangedStress,
+      isChangedSelfEsteem: freezed == isChangedSelfEsteem
+          ? _value.isChangedSelfEsteem!
+          : isChangedSelfEsteem,
       isComplete: null == isComplete
           ? _value.isComplete
           : isComplete // ignore: cast_nullable_to_non_nullable
@@ -1150,18 +1178,26 @@ class __$$MoodStateImplCopyWithImpl<$Res>
 
 class _$MoodStateImpl implements _MoodState {
   const _$MoodStateImpl(
-      {this.moodEntity = const MoodEntity(), this.isComplete = false});
+      {required this.moodEntity,
+      this.isChangedStress = false,
+      this.isChangedSelfEsteem = false,
+      this.isComplete = false});
 
   @override
-  @JsonKey()
   final MoodEntity moodEntity;
+  @override
+  @JsonKey()
+  final dynamic isChangedStress;
+  @override
+  @JsonKey()
+  final dynamic isChangedSelfEsteem;
   @override
   @JsonKey()
   final bool isComplete;
 
   @override
   String toString() {
-    return 'MoodState(moodEntity: $moodEntity, isComplete: $isComplete)';
+    return 'MoodState(moodEntity: $moodEntity, isChangedStress: $isChangedStress, isChangedSelfEsteem: $isChangedSelfEsteem, isComplete: $isComplete)';
   }
 
   @override
@@ -1171,12 +1207,21 @@ class _$MoodStateImpl implements _MoodState {
             other is _$MoodStateImpl &&
             (identical(other.moodEntity, moodEntity) ||
                 other.moodEntity == moodEntity) &&
+            const DeepCollectionEquality()
+                .equals(other.isChangedStress, isChangedStress) &&
+            const DeepCollectionEquality()
+                .equals(other.isChangedSelfEsteem, isChangedSelfEsteem) &&
             (identical(other.isComplete, isComplete) ||
                 other.isComplete == isComplete));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, moodEntity, isComplete);
+  int get hashCode => Object.hash(
+      runtimeType,
+      moodEntity,
+      const DeepCollectionEquality().hash(isChangedStress),
+      const DeepCollectionEquality().hash(isChangedSelfEsteem),
+      isComplete);
 
   @JsonKey(ignore: true)
   @override
@@ -1187,10 +1232,17 @@ class _$MoodStateImpl implements _MoodState {
 
 abstract class _MoodState implements MoodState {
   const factory _MoodState(
-      {final MoodEntity moodEntity, final bool isComplete}) = _$MoodStateImpl;
+      {required final MoodEntity moodEntity,
+      final dynamic isChangedStress,
+      final dynamic isChangedSelfEsteem,
+      final bool isComplete}) = _$MoodStateImpl;
 
   @override
   MoodEntity get moodEntity;
+  @override
+  dynamic get isChangedStress;
+  @override
+  dynamic get isChangedSelfEsteem;
   @override
   bool get isComplete;
   @override

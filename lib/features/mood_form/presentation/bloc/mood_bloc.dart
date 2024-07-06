@@ -78,6 +78,7 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
     final newMoodEntity = state.moodEntity.copyWith(stress: event.stress);
     emit(state.copyWith(
       moodEntity: newMoodEntity,
+      isChangedStress: true,
       isComplete: _checkCompletion(newMoodEntity),
     ));
     print('BLOC STRESS ${state.moodEntity}');
@@ -90,6 +91,7 @@ class MoodBloc extends Bloc<MoodEvent, MoodState> {
     final newMoodEntity = state.moodEntity.copyWith(selfEsteem: event.selfEsteem);
     emit(state.copyWith(
       moodEntity: newMoodEntity,
+      isChangedSelfEsteem: true,
       isComplete: _checkCompletion(newMoodEntity),
     ));
     print('BLOC SELFESTEEM ${state.moodEntity}');
